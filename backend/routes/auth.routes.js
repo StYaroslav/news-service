@@ -80,6 +80,10 @@ router.post(
                 { expiresIn: '1h' }
             )
 
+            if(!user.isVerified) {
+                return res.status(400).json({ message: "Confirm email to login!" })
+            }
+
             res.json({ token, userId: user.id })
 
 

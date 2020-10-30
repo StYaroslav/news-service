@@ -7,24 +7,39 @@
       <p>Be a part of our community!</p>
       <p>Already have an account? <a href="#">Log in</a></p>
     </div>
-    <form>
+    <form [formGroup]="registrationReactiveForm" (submit)="onSubmit()">
       <div class="form-field">
-        <input type="email" class="form-input" required=""/>
+        <input type="text" class="form-input" required="" formControlName="email"/>
         <label>Email <span class="required-icon">
         <fa-icon [icon]="faAsterisk"></fa-icon>
       </span></label>
+        <div class="error" *ngIf="isEmailValid('email')">
+          *Enter correct email!
+        </div>
       </div>
       <div class="form-field">
-        <input type="text" class="form-input" required=""/>
+        <input type="text" class="form-input" required="" formControlName="login"/>
         <label>Login <span class="required-icon">
         <fa-icon [icon]="faAsterisk"></fa-icon>
       </span></label>
+        <div class="error" *ngIf="isLoginValid('login')">
+          *Login can contain only digits, letters and _!
+        </div>
       </div>
       <div class="form-field">
-        <input type="password" class="form-input" required=""/>
+        <input type="password" class="form-input" required="" formControlName="password"/>
+        <div class="show-password-button">
+<!--          <fa-icon class="eye-icon" *ngif="showPassword()" [icon]="faEyeSlash"></fa-icon>-->
+<!--          <fa-icon class="eye-icon" *ngif="showPassword()" [icon]="faEye"></fa-icon>-->
+        </div>
         <label>Password <span class="required-icon">
         <fa-icon [icon]="faAsterisk"></fa-icon>
       </span></label>
+        <div class="error">
+             <p *ngIf="isPasswordValid('password')">
+          *Password should contain at least one digit, one capital letter and be longer than 5 characters!
+             </p>
+        </div>
       </div>
       <div class="form-field">
         <button type="submit" class="register-button">

@@ -12,6 +12,7 @@ button {
 
 form {
   width: 60%;
+  display: block;
 }
 
 fa-icon {
@@ -19,6 +20,18 @@ fa-icon {
   color: red;
   position: relative;
   top: -5px;
+}
+
+.eye-icon {
+  color: black;
+  font-size: 15px;
+}
+
+.show-password-button {
+  position: relative;
+  top: -22px;
+  left: 280px;
+  cursor: pointer;
 }
 
 .centered-container {
@@ -31,7 +44,7 @@ fa-icon {
 
 .registration-form-container {
   display: flex;
-  height: 640px;
+  height: min-content;
   width: 500px;
   align-items: center;
   flex-direction: column;
@@ -62,6 +75,8 @@ fa-icon {
 }
 
 .form-field {
+  display: flex;
+  flex-direction: column;
   position: relative;
   align-content: center;
   margin-bottom: 40px;
@@ -75,6 +90,16 @@ fa-icon {
   padding: 8px 0 5px 0;
   width: 100%;
 }
+
+.form-input.ng-touched.ng-invalid {
+  border-bottom-color: red;
+}
+
+/*.form-input.ng-touched.ng-invalid label,
+.form-input.ng-touched.ng-invalid ~ label
+{
+  color: red;
+}*/
 
 .form-field input:focus ~ label,
 .form-field input:valid ~ label {
@@ -147,5 +172,11 @@ fa-icon {
 .google-button-container img {
   width: 30px;
   height: 30px;
+}
+
+.error {
+  margin-top: 3px;
+  font-size: 11px;
+  color: red;
 }
 

@@ -8,6 +8,10 @@ const userSchema = new Schema ({
         type: Boolean,
         defaultValue: false
     },
+    isVerified: {
+        type: Boolean,
+        defaultValue: false
+    },
     articles: [{
         article: { type: Types.ObjectId, ref: 'Article' },
         mark: { type: String, defaultValue: '1'}
@@ -16,7 +20,8 @@ const userSchema = new Schema ({
         tag: String,
         weight: Number
     }],
-   cluster: { type: Types.ObjectId, ref: 'Cluster' }
+   cluster: { type: Types.ObjectId, ref: 'Cluster' },
+   verificationToken: { type: Types.ObjectId, ref: 'Token'}
 });
 
 module.exports = model('User', userSchema)
