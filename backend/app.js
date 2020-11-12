@@ -1,6 +1,7 @@
 // This is the main app file
 // To start server run this command in terminal: npm run server
 
+require('dotenv').config()
 const express = require('express')
 const config = require('config')
 const {mongoose} = require('./db/mongoose')
